@@ -1,5 +1,5 @@
 # exif-date-fixer
-Script for restoring missing photo's exif date from the photo name
+Restoring missing photo's exif date from the photo name
 
 ## run
 ```
