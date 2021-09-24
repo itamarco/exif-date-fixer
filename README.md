@@ -1,13 +1,13 @@
 # exif-date-fixer
 Restoring missing photo's exif date from the photo name
 
-## run
+## usage:
 ```
 pip install piexif
 python exif-fixer.py ./path/to/photos/folder
 ```
 
-## what is this script used for?
+## what is it good for?
 Photos galeries are using the "creation date" field in the exif metadata in order to sort/display photos.
 Eif fields may be missing. It happens for instance when downloading photos from Whatsapp.
 
