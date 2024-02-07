@@ -4,7 +4,6 @@ import piexif
 import re
 import os
 import sys
-import time
 
 date_pattern = re.compile(r"(?:(?:\b|_)(\d{4}-\d{2}-\d{2}|\d{8})(?:\b|_))")
 time_pattern = re.compile(r"(?:(?:\b|_)(\d{6})(?:\b|_))")
@@ -16,7 +15,13 @@ def to_datetime(date_str, time_str):
         return None
 
 def set_exif_date(filepath, date):
-    exif_dict = {'Exif': {piexif.ExifIFD.DateTimeOriginal: date.strftime("%Y:%m:%d %H:%M:%S")}}
+    exif_date = date.strftime("%Y:%m:%d %H:%M:%S")
+    exif_dict = {
+        'Exif': {
+            piexif.ExifIFD.DateTimeOriginal: exif_date,
+            piexif.ExifIFD.DateTimeDigitized: exif_date
+        }
+    }
     exif_bytes = piexif.dump(exif_dict)
     piexif.insert(exif_bytes, filepath)
 
